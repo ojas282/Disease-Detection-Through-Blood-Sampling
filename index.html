@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Detection</title>
+</head>
+<body>
+    <h1>Disease Detection from Blood Report</h1>
+    <form id="diseaseForm">
+        <label for="wbc">WBC:</label>
+        <input type="text" id="wbc" name="wbc"><br>
+        <label for="lymp">LYMp:</label>
+        <input type="text" id="lymp" name="lymp"><br>
+        <label for="midp">MIDp:</label>
+        <input type="text" id="midp" name="midp"><br>
+        <label for="neutp">NEUTp:</label>
+        <input type="text" id="neutp" name="neutp"><br>
+        <label for="lymn">LYMn:</label>
+        <input type="text" id="lymn" name="lymn"><br>
+        <label for="midn">MIDn:</label>
+        <input type="text" id="midn" name="midn"><br>
+        <label for="neutn">NEUTn:</label>
+        <input type="text" id="neutn" name="neutn"><br>
+        <label for="rbc">RBC:</label>
+        <input type="text" id="rbc" name="rbc"><br>
+        <label for="hgb">HGB:</label>
+        <input type="text" id="hgb" name="hgb"><br>
+        <label for="hct">HCT:</label>
+        <input type="text" id="hct" name="hct"><br>
+        <label for="mcv">MCV:</label>
+        <input type="text" id="mcv" name="mcv"><br>
+        <label for="mch">MCH:</label>
+        <input type="text" id="mch" name="mch"><br>
+        <label for="mchc">MCHC:</label>
+        <input type="text" id="mchc" name="mchc"><br>
+        <label for="rdwsd">RDWSD:</label>
+        <input type="text" id="rdwsd" name="rdwsd"><br>
+        <label for="rdwcv">RDWCV:</label>
+        <input type="text" id="rdwcv" name="rdwcv"><br>
+        <label for="plt">PLT:</label>
+        <input type="text" id="plt" name="plt"><br>
+        <label for="mpv">MPV:</label>
+        <input type="text" id="mpv" name="mpv"><br>
+        <label for="pdw">PDW:</label>
+        <input type="text" id="pdw" name="pdw"><br>
+        <label for="pct">PCT:</label>
+        <input type="text" id="pct" name="pct"><br>
+        <label for="plcr">PLCR:</label>
+        <input type="text" id="plcr" name="plcr"><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function submitForm() {
+            var formData = {
+                WBC: document.getElementById('wbc').value,
+                LYMp: document.getElementById('lymp').value,
+                MIDp: document.getElementById('midp').value,
+                NEUTp: document.getElementById('neutp').value,
+                LYMn: document.getElementById('lymn').value,
+                MIDn: document.getElementById('midn').value,
+                NEUTn: document.getElementById('neutn').value,
+                RBC: document.getElementById('rbc').value,
+                HGB: document.getElementById('hgb').value,
+                HCT: document.getElementById('hct').value,
+                MCV: document.getElementById('mcv').value,
+                MCH: document.getElementById('mch').value,
+                MCHC: document.getElementById('mchc').value,
+                RDWSD: document.getElementById('rdwsd').value,
+                RDWCV: document.getElementById('rdwcv').value,
+                PLT: document.getElementById('plt').value,
+                MPV: document.getElementById('mpv').value,
+                PDW: document.getElementById('pdw').value,
+                PCT: document.getElementById('pct').value,
+                PLCR: document.getElementById('plcr').value
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type':
